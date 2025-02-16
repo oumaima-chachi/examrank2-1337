@@ -1,13 +1,14 @@
 #include <unistd.h>
 #include <stdio.h>
-unsigned char	reverse_bits(unsigned char octet)
+unsigned char reverse_bits(unsigned char octet)
 {
-    int i = 8;
     unsigned char bit = 0;
+    int i = 8;
+
     while (i > 0)
     {
-        bit = bit * 2 + (octet % 2);
-        octet = octet / 2;
+        bit = (bit << 1) | (octet & 1);
+        octet >>= 1;
         i--;
     }
     return bit;

@@ -17,7 +17,7 @@ void expand_str(char *str)
         {
             if (space)
             {
-                write (1, "   ", 1);
+                write (1, "   ", 3);
                 space = 0;
             }
             write (1, &str[i], 1);

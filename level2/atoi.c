@@ -16,8 +16,9 @@ int	ft_atoi(const char *str)
 	if (str[i] == '-')
 	{
 		sign = -1;
+		i++;
 	}
-	if (str[i] == '-' && str[i] == '+')
+	if (str[i] == '-' || str[i] == '+')
 	{
 		i++;
 	}
@@ -30,6 +31,6 @@ int	ft_atoi(const char *str)
 }
 int main()
 {
-    char *str = "123jfhdld88";
+    char *str ="-13268gfd33!";
     printf("%d", ft_atoi(str));
 }
