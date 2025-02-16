@@ -14,12 +14,13 @@ char    *ft_strdup(char *src)
     cp = malloc(sizeof(*cp) * (tool + 1));
     if (!cp)
     {
-        while(src[i])
-        {
-            cp[i] = src[i];
-            i++;
-        }
-        cp[i] = '\0';
+        return NULL;
     }
+    while (i < tool)
+    {
+        cp[i] = src[i];
+        i++;
+    }
+    cp[i] = '\0';
     return cp;
 }
