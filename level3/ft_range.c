@@ -1,48 +1,23 @@
-#include <stdlib.h>
-#include <stdio.h>
-
-int *ft_range(int min, int max)
+int     *ft_range(int start, int end)
 {
-    int i;
-    int size;
-    int *r;
-
-    size = max - min;
-    if (min >= max)
-        return (NULL);
-    r = malloc(sizeof(int) * size);
-    // if (!r)
-    //     return (NULL);
-    i = 0;
-    while (min < max)
+    int i = 0;
+    int size = end - start + 1;
+    int *res;
+    if (start > end)
     {
-        r[i] = min;
-        min++;
+        return NULL;
+    }
+    res = malloc(sizeof(int) * size);
+    if (!res)
+    {
+        return NULL;
+    }
+    i = 0;
+    while (end >= start)
+    {
+        res[i] = start;
+        start++;
         i++;
     }
-    return (r);
-}
-
-int main()
-{
-    int min = -1;
-    int max = 3;
-    int *intrange = ft_range(min, max);
-
-    if (intrange == NULL)
-    {
-        printf("Erreur d'allocation mémoire ou plage invalide.\n");
-        return (1);
-    }
-
-    // Affichage du tableau
-    for (int i = 0; i < (max - min); i++)
-    {
-        printf("%d ", intrange[i]);
-    }
-    printf("\n");
-
-    // Libérer la mémoire allouée
-    free(intrange);
-    return (0);
+    return res;
 }
