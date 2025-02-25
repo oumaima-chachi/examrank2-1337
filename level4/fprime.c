@@ -1,37 +1,34 @@
-#include<stdio.h>
-#include<stdlib.h>
-int main(int argc , char **argv)
+#include <stdio.h>
+#include <stdlib.h>
+
+void	fprime(int nb)
 {
-    if(argc==2)
-    {
-        int nb= atoi(argv[1]);
-       // int result =2;
-        // if(nb==2)
-        // {
-        //     printf("%d\n",2);
-        //     return 0;
-        // }
-        if(nb==1)
-        {
-            printf("%d\n",2);
-            return 0;
-        }
-        int i=2;
-        while(nb>=i)
-        {
-            if(nb%i==0)
-            {
-                printf("%d",i);
-                nb/=i;
-                if(nb>1)
-                    printf("*");
-            }
-            else   
-                i++;
-        }
+	int i;
 
-    }
-    printf("\n");
-    return 0;
+	i = 2;
+	if (nb == 1)
+	{
+		printf("1");
+		return ;
+	}
+	while (nb >= i)
+	{
+		if (nb % i == 0)
+		{
+			printf("%d", i);
+			if (nb != i)
+				printf("*");
+			nb /= i;
+			i--;
+		}
+		i++;
+	}
+}
 
+int		main(int ac, char **av)
+{
+	if (ac == 2)
+		fprime(atoi(av[1]));
+	printf("\n");
+	return (0);
 }
