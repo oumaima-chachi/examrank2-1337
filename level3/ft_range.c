@@ -1,23 +1,19 @@
-int     *ft_range(int start, int end)
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdlib.h>
+
+int *ft_range(int start, int end)
 {
-    int i = 0;
-    int size = end - start + 1;
-    int *res;
-    if (start > end)
-    {
-        return NULL;
-    }
-    res = malloc(sizeof(int) * size);
+    int size = (start <= end) ? (end - start + 1) : (start - end + 1);
+    int *res = malloc(sizeof(int) * size);
     if (!res)
-    {
         return NULL;
-    }
-    i = 0;
-    while (end >= start)
+
+    for (int i = 0; i < size; i++)
     {
-        res[i] = start;
-        start++;
-        i++;
+        res[i] = (start <= end) ? (start + i) : (start - i);
     }
+
     return res;
 }
